@@ -22,4 +22,11 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/main</item>
         <item name="postSplashScreenTheme">@style/Theme.DGSWgg_App</item>
     </style>
+
+    <style name="Theme.BottomNavigationView" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="itemIconTint">@color/color_bnv_night</item>
+        <item name="itemTextColor">@color/color_bnv_night</item>
+        <item name="itemTextAppearanceActive">@style/Theme.BottomNavigationView.TextAppearanceActive</item>
+        <item name="itemTextAppearanceInactive">@style/Theme.BottomNavigationView.TextAppearanceInactive</item>
+    </style>
 </resources>

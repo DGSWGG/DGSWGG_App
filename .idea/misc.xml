@@ -6,12 +6,13 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.27708333333333335" />
         <entry key="presentation/src/main/res/drawable-v24/logo.xml" value="0.122" />
         <entry key="presentation/src/main/res/drawable/background_splash.xml" value="0.125" />
+        <entry key="presentation/src/main/res/drawable/bg_bottom_navigation_view.xml" value="0.5" />
         <entry key="presentation/src/main/res/drawable/ic_home.xml" value="0.256" />
         <entry key="presentation/src/main/res/drawable/ic_launcher_background.xml" value="0.122" />
         <entry key="presentation/src/main/res/drawable/ic_rank.xml" value="0.256" />
         <entry key="presentation/src/main/res/drawable/ic_setup.xml" value="0.2655" />
         <entry key="presentation/src/main/res/drawable/logo.xml" value="0.122" />
-        <entry key="presentation/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="presentation/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="presentation/src/main/res/layout/activity_splash.xml" value="0.3567708333333333" />
         <entry key="presentation/src/main/res/layout/fragment_home.xml" value="0.3567708333333333" />
         <entry key="presentation/src/main/res/layout/fragment_rank.xml" value="0.35625" />

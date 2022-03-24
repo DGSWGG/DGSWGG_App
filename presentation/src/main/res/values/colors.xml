@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main">#5c84e1</color>
+    <color name="line">#DEDEDE</color>
+    <color name="enabled">#1d2023</color>
+    <color name="enabled_night">#FFFFFF</color>
+    <color name="disabled">#8D99A7</color>
 </resources>

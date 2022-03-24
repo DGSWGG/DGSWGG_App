@@ -22,4 +22,19 @@
         <item name="postSplashScreenTheme">@style/Theme.DGSWgg_App</item>
         <item name="android:statusBarColor">@color/main</item>
     </style>
+
+    <style name="Theme.BottomNavigationView" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="itemIconTint">@color/color_bnv</item>
+        <item name="itemTextColor">@color/color_bnv</item>
+        <item name="itemTextAppearanceActive">@style/Theme.BottomNavigationView.TextAppearanceActive</item>
+        <item name="itemTextAppearanceInactive">@style/Theme.BottomNavigationView.TextAppearanceInactive</item>
+    </style>
+
+    <style name="Theme.BottomNavigationView.TextAppearanceActive">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Theme.BottomNavigationView.TextAppearanceInactive">
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

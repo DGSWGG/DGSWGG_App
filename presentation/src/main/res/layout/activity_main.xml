@@ -25,6 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Theme.BottomNavigationView"
         android:background="@drawable/bg_bottom_navigation_view"
         app:elevation="0dp"
         app:menu="@menu/menu_main" />

@@ -11,9 +11,11 @@
         android:theme="@style/Theme.AppSplash">
         <activity
             android:name=".ui.activity.SearchActivity"
+            android:theme="@style/Theme.DGSWgg_App"
             android:exported="false" />
         <activity
             android:name=".ui.activity.MainActivity"
+            android:theme="@style/Theme.DGSWgg_App"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

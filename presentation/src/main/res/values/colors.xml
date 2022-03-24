@@ -12,4 +12,5 @@
     <color name="enabled">#1d2023</color>
     <color name="enabled_night">#FFFFFF</color>
     <color name="disabled">#8D99A7</color>
+    <color name="button_enabled">#FAFAFA</color>
 </resources>

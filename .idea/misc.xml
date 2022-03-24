@@ -7,9 +7,15 @@
         <entry key="presentation/src/main/res/drawable-v24/logo.xml" value="0.122" />
         <entry key="presentation/src/main/res/drawable/background_splash.xml" value="0.125" />
         <entry key="presentation/src/main/res/drawable/bg_bottom_navigation_view.xml" value="0.5" />
+        <entry key="presentation/src/main/res/drawable/bg_search_button.xml" value="0.25" />
         <entry key="presentation/src/main/res/drawable/ic_home.xml" value="0.256" />
         <entry key="presentation/src/main/res/drawable/ic_launcher_background.xml" value="0.122" />
         <entry key="presentation/src/main/res/drawable/ic_rank.xml" value="0.256" />
+        <entry key="presentation/src/main/res/drawable/ic_search.xml" value="0.169" />
+        <entry key="presentation/src/main/res/drawable/ic_search_disabled.xml" value="0.169" />
+        <entry key="presentation/src/main/res/drawable/ic_search_enabled.xml" value="0.169" />
+        <entry key="presentation/src/main/res/drawable/ic_search_enabled_night.xml" value="0.169" />
+        <entry key="presentation/src/main/res/drawable/ic_search_night.xml" value="0.169" />
         <entry key="presentation/src/main/res/drawable/ic_setup.xml" value="0.2655" />
         <entry key="presentation/src/main/res/drawable/logo.xml" value="0.122" />
         <entry key="presentation/src/main/res/layout/activity_main.xml" value="0.335" />

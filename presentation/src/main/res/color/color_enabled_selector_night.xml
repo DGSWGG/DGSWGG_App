@@ -4,4 +4,8 @@
         android:color="@color/enabled_night"/>
     <item android:state_checked="false"
         android:color="@color/disabled"/>
+    <item android:state_focused="true"
+        android:color="@color/enabled_night"/>
+    <item android:state_focused="false"
+        android:color="@color/disabled"/>
 </selector>

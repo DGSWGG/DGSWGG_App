@@ -58,6 +58,7 @@
     </style>
 
     <style name="Theme.Search.EditText" parent="Theme.Search.Background">
+        <item name="android:background">@drawable/bg_search_input</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/disabled</item>
     </style>

@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background</item>
     </style>
 
     <style name="Theme.AppSplash" parent="Theme.SplashScreen">
@@ -21,6 +22,16 @@
         <item name="splashScreenIconSize">10dp</item>
         <item name="postSplashScreenTheme">@style/Theme.DGSWgg_App</item>
         <item name="android:statusBarColor">@color/main</item>
+    </style>
+
+    <style name="Theme.Toolbar.NavigationIcon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="navigationIcon">@drawable/ic_arrow_light</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="Theme.BottomNavigationView" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -42,7 +53,14 @@
         <item name="android:padding">10dp</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="android:drawableStart">@drawable/ic_search</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/disabled</item>
+    </style>
+
+    <style name="Theme.Search.EditText" parent="Theme.Search.Background">
+        <item name="android:background">@drawable/bg_search_input</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/disabled</item>
     </style>
 
     <style name="Theme.BottomNavigationView.TextAppearanceActive">

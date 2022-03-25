@@ -7,6 +7,7 @@
     tools:context=".ui.activity.SearchActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Theme.Toolbar.NavigationIcon"
@@ -18,8 +19,7 @@
         <EditText
             android:id="@+id/et_search"
             android:hint="@string/search_hint"
-            android:textColor="@color/black"
-            style="@style/Theme.Search.Background"
+            style="@style/Theme.Search.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

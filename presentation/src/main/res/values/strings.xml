@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DGSW.gg_App</string>
+    <string name="search_hint">소환사 및 학생명 검색</string>
 </resources>

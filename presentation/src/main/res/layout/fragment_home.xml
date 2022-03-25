@@ -20,7 +20,7 @@
             style="@style/Theme.Search.Background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="소환사 및 학생명 검색"
+            android:text="@string/search_hint"
             android:onClick="@{() -> vm.onClickSearch()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

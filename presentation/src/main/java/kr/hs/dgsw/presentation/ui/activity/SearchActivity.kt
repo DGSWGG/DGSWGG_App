@@ -16,6 +16,17 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        init()
+        observe()
+    }
+
+    private fun init() {
         binding.vm = viewModel
+    }
+
+    private fun observe() {
+        viewModel.eventFinishActivity.observe(this) {
+            finish()
+        }
     }
 }

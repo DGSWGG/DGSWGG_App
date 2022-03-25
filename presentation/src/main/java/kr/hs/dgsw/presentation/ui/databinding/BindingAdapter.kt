@@ -2,8 +2,8 @@ package kr.hs.dgsw.presentation.ui.databinding
 
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.BindingAdapter
-import androidx.databinding.InverseBindingAdapter
 
 @BindingAdapter("android:onEditorAction")
 fun EditText.onEditorAction(onEditorAction: () -> Unit) {
@@ -12,5 +12,12 @@ fun EditText.onEditorAction(onEditorAction: () -> Unit) {
             onEditorAction()
         }
         false
+    }
+}
+
+@BindingAdapter("android:onClickNavigation")
+fun Toolbar.onClickNavigation(onClickNavigation: () -> Unit) {
+    this.setNavigationOnClickListener {
+        onClickNavigation()
     }
 }

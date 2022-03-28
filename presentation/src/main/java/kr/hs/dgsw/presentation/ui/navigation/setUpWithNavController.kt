@@ -10,16 +10,16 @@ fun BottomNavigationView.setupWithNavControllerCustomAnim(navController: NavCont
         .setLaunchSingleTop(true)
         .setEnterAnim(R.anim.slide_in_left)
         .setExitAnim(R.anim.slide_out_right)
-        .setPopEnterAnim(R.anim.slide_in_left)
-        .setPopExitAnim(R.anim.slide_out_right)
+        .setPopEnterAnim(R.anim.slide_in_right)
+        .setPopExitAnim(R.anim.slide_out_left)
         .build()
 
     val navOptionsNextAnim = NavOptions.Builder()
         .setLaunchSingleTop(true)
         .setEnterAnim(R.anim.slide_in_right)
         .setExitAnim(R.anim.slide_out_left)
-        .setPopEnterAnim(R.anim.slide_in_right)
-        .setPopExitAnim(R.anim.slide_out_left)
+        .setPopEnterAnim(R.anim.slide_in_left)
+        .setPopExitAnim(R.anim.slide_out_right)
         .build()
 
     var itemId = selectedItemId

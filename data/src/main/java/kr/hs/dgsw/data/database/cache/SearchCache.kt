@@ -19,6 +19,10 @@ class SearchCache @Inject constructor(
         return dao.insertSearch(searchData)
     }
 
+    suspend fun deleteAllSearch() {
+        return dao.deleteAllSearch()
+    }
+
     suspend fun deleteSearch(id: Long) {
         return dao.deleteSearch(id)
     }

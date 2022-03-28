@@ -7,5 +7,6 @@ import kr.hs.dgsw.domain.entity.Search
 interface SearchRepository {
     fun getAll(size: Int): Flow<PagingData<Search>>
     suspend fun insertSearch(search: Search)
+    suspend fun deleteAllSearch()
     suspend fun deleteSearch(id: Long)
 }

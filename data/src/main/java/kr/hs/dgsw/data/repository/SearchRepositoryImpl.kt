@@ -27,6 +27,10 @@ class SearchRepositoryImpl @Inject constructor(
         searchDataSource.insertSearch(search)
     }
 
+    override suspend fun deleteAllSearch() {
+        searchDataSource.deleteAllSearch()
+    }
+
     override suspend fun deleteSearch(id: Long) {
         searchDataSource.deleteSearch(id)
     }

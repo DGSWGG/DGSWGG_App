@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kr.hs.dgsw.domain.repository.SearchRepository
+import kr.hs.dgsw.domain.usecase.search.DeleteAllSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.DeleteSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.GetAllSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.InsertSearchUseCase
@@ -23,6 +24,12 @@ object SearchUseCaseModule {
     @Singleton
     fun provideInsertSearchUseCase(searchRepository: SearchRepository): InsertSearchUseCase {
         return InsertSearchUseCase(searchRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDeleteAllSearchUseCase(searchRepository: SearchRepository): DeleteAllSearchUseCase {
+        return DeleteAllSearchUseCase(searchRepository)
     }
 
     @Provides

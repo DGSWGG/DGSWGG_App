@@ -12,6 +12,10 @@ class SearchDataSource @Inject constructor(
         cache.insertSearch(search.toData())
     }
 
+    suspend fun deleteAllSearch() {
+        cache.deleteAllSearch()
+    }
+
     suspend fun deleteSearch(id: Long) {
         cache.deleteSearch(id)
     }

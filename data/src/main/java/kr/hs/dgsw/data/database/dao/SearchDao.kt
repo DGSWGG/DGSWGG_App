@@ -14,6 +14,9 @@ interface SearchDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSearch(searchData: SearchData)
 
+    @Delete
+    suspend fun deleteAllSearch()
+
     @Query("DELETE FROM search WHERE id = :id")
     suspend fun deleteSearch(id: Long)
 }

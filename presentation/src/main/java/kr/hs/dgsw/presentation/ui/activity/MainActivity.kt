@@ -31,6 +31,6 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
 
         navController = navHostFragment.findNavController()
-        bottomNavigationView.setupWithNavControllerCustomAnim(navController)
+        bottomNavigationView.setupWithNavControllerCustomAnim(this, navController)
     }
 }

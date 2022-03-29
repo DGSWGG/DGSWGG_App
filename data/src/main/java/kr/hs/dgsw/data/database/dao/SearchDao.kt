@@ -5,7 +5,7 @@ import kr.hs.dgsw.data.entity.SearchData
 
 @Dao
 interface SearchDao {
-    @Query("SELECT * FROM search ORDER BY id DESC LIMIT :size OFFSET :page")
+    @Query("SELECT * FROM search ORDER BY id DESC LIMIT :size OFFSET :page * :size")
     suspend fun getAll(
         size: Int,
         page: Int

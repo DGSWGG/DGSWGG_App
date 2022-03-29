@@ -4,33 +4,69 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import kr.hs.dgsw.domain.entity.Search
+import androidx.recyclerview.widget.RecyclerView
+import kr.hs.dgsw.presentation.databinding.HeaderSearchBinding
 import kr.hs.dgsw.presentation.databinding.ItemSearchBinding
+import kr.hs.dgsw.presentation.ui.adapter.viewholder.search.SearchHeaderViewHolder
 import kr.hs.dgsw.presentation.ui.adapter.viewholder.search.SearchItemViewHolder
+import kr.hs.dgsw.presentation.ui.uimodel.SearchUIModel
+import java.lang.ClassCastException
 
-class SearchHistoryAdapter: PagingDataAdapter<Search, SearchItemViewHolder>(diffUtil) {
+class SearchHistoryAdapter: PagingDataAdapter<SearchUIModel, RecyclerView.ViewHolder>(diffUtil) {
 
-    override fun onBindViewHolder(holder: SearchItemViewHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it) }
+    override fun getItemViewType(position: Int): Int {
+        return when(getItem(position)) {
+            is SearchUIModel.Header -> SEARCH_HEADER
+            is SearchUIModel.SearchModel -> SEARCH_ITEM
+            else -> throw ClassCastException()
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchItemViewHolder {
-        return SearchItemViewHolder(
-            ItemSearchBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        getItem(position)?.let {
+            when(holder) {
+                is SearchItemViewHolder ->
+                    holder.bind(
+                        getItem(position)
+                                as SearchUIModel.SearchModel
+                    )
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when(viewType) {
+            SEARCH_HEADER -> {
+                SearchHeaderViewHolder(
+                    HeaderSearchBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
+            }
+            SEARCH_ITEM -> {
+                SearchItemViewHolder(
+                    ItemSearchBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
+            }
+            else -> throw ClassCastException()
+        }
     }
 
     companion object {
-        private val diffUtil = object: DiffUtil.ItemCallback<Search>() {
-            override fun areItemsTheSame(oldItem: Search, newItem: Search): Boolean {
-                return oldItem.id == newItem.id
+        const val SEARCH_HEADER = 0
+        const val SEARCH_ITEM = 1
+        private val diffUtil = object: DiffUtil.ItemCallback<SearchUIModel>() {
+            override fun areItemsTheSame(oldItem: SearchUIModel, newItem: SearchUIModel): Boolean {
+                return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: Search, newItem: Search): Boolean {
+            override fun areContentsTheSame(oldItem: SearchUIModel, newItem: SearchUIModel): Boolean {
                 return oldItem == newItem
             }
 

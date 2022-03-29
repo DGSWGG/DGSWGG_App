@@ -5,7 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kr.hs.dgsw.data.datasource.search.SearchDataSource
-import kr.hs.dgsw.data.datasource.search.SearchPagingSource
+import kr.hs.dgsw.data.database.paging.SearchPagingSource
 import kr.hs.dgsw.data.repository.SearchRepositoryImpl
 import kr.hs.dgsw.domain.repository.SearchRepository
 import javax.inject.Singleton
@@ -15,13 +15,7 @@ import javax.inject.Singleton
 object RepositoryModule {
     @Provides
     @Singleton
-    fun provideSearchRepository(
-        searchDataSource: SearchDataSource,
-        searchPagingSource: SearchPagingSource
-    ): SearchRepository {
-        return SearchRepositoryImpl(
-            searchPagingSource,
-            searchDataSource
-        )
+    fun provideSearchRepository(searchDataSource: SearchDataSource): SearchRepository {
+        return SearchRepositoryImpl(searchDataSource)
     }
 }

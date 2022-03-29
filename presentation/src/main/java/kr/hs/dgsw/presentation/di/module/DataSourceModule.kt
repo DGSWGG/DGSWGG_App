@@ -6,7 +6,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kr.hs.dgsw.data.database.cache.SearchCache
 import kr.hs.dgsw.data.datasource.search.SearchDataSource
-import kr.hs.dgsw.data.datasource.search.SearchPagingSource
 import javax.inject.Singleton
 
 @Module
@@ -16,11 +15,5 @@ object DataSourceModule {
     @Singleton
     fun searchDataSource(searchCache: SearchCache): SearchDataSource {
         return SearchDataSource(searchCache)
-    }
-
-    @Provides
-    @Singleton
-    fun searchPagingSource(searchCache: SearchCache): SearchPagingSource {
-        return SearchPagingSource(searchCache)
     }
 }

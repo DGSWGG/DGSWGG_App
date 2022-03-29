@@ -17,6 +17,23 @@
         <item name="android:windowAnimationStyle">@style/Theme.Activity.SlideAnimation</item>
     </style>
 
+    <style name="Theme.Text" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Theme.Text.Bold" parent="Theme.Text">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.Text.Small" parent="Theme.Text">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Theme.Text.Small.Bold" parent="Theme.Text.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="Theme.Activity.SlideAnimation" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>

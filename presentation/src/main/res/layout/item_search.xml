@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:paddingVertical="10dp"
-    android:paddingHorizontal="20dp"
+    android:padding="15dp"
     android:background="@color/color_button_clicked"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -21,8 +20,8 @@
 
         <ImageView
             android:id="@+id/iv_profile_image_item_search"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:scaleType="centerCrop"
             android:background="@color/disabled" />
 
@@ -30,10 +29,10 @@
 
     <TextView
         android:id="@+id/tv_summoner_name_item_search"
-        style="@style/Theme.Text.Small"
+        style="@style/Theme.Text.Small.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="최근 검색"
+        tools:text="닉네임"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@+id/cv_profile_image_item_search"
         app:layout_constraintTop_toTopOf="parent" />

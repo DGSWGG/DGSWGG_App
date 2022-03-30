@@ -10,7 +10,7 @@ import kr.hs.dgsw.domain.entity.Search
 import kr.hs.dgsw.domain.usecase.search.GetAllSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.InsertSearchUseCase
 import kr.hs.dgsw.presentation.ui.uimodel.SearchUIModel
-import kr.hs.dgsw.presentation.ui.util.SingleLiveEvent
+import kr.hs.dgsw.presentation.util.SingleLiveEvent
 import javax.inject.Inject
 
 @HiltViewModel

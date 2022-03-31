@@ -1,5 +1,6 @@
 package kr.hs.dgsw.presentation.ui.viewmodel
 
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.*
 import androidx.paging.*
@@ -17,34 +18,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val getAllSearchUseCase: GetAllSearchUseCase,
     private val insertSearchUseCase: InsertSearchUseCase,
     private val deleteAllSearchUseCase: DeleteAllSearchUseCase,
     private val deleteSearchUseCase: DeleteSearchUseCase
 ): ViewModel() {
 
-    val searchText = ObservableField<String>()
-
-    private val _eventFinishActivity = SingleLiveEvent<Unit>()
-    val eventFinishActivity: LiveData<Unit> = _eventFinishActivity
-
-    private val _search = MutableLiveData<PagingData<SearchUIModel>>()
-    val search: LiveData<PagingData<SearchUIModel>> = _search
-
     private val _refresh = SingleLiveEvent<Unit>()
     val refresh: LiveData<Unit> = _refresh
-
-    fun getAllSearch() {
-        viewModelScope.launch {
-            getAllSearchUseCase.buildParamsUseCase(GetAllSearchUseCase.Params(10))
-                .cachedIn(viewModelScope)
-                .collectLatest {
-                    _search.value = it.map { search ->
-                        SearchUIModel.SearchModel(search) as SearchUIModel
-                    }.insertHeaderItem(TerminalSeparatorType.FULLY_COMPLETE, SearchUIModel.Header)
-                }
-        }
-    }
 
     fun deleteSearch(id: Long) {
         viewModelScope.launch {
@@ -62,16 +42,13 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-    fun searchSummoner() {
+    fun searchSummoner(searchText: String) {
+        Log.d("TAG", "searchSummoner: ")
         viewModelScope.launch {
-            val search = Search(profileIconId = 550, summonerName = searchText.get() ?: "")
+            val search = Search(profileIconId = 550, summonerName = searchText)
             insertSearchUseCase.buildParamsSuspendUseCase(InsertSearchUseCase.Params(search))
         }.invokeOnCompletion {
             _refresh.call()
         }
-    }
-
-    fun finishActivity() {
-        _eventFinishActivity.call()
     }
 }

@@ -14,6 +14,9 @@ import java.lang.ClassCastException
 
 class SearchHistoryAdapter: PagingDataAdapter<SearchUIModel, RecyclerView.ViewHolder>(diffUtil) {
 
+    lateinit var onClickDeleteAllSearch: () -> Unit
+    lateinit var onClickDeleteSearch: (Long) -> Unit
+
     override fun getItemViewType(position: Int): Int {
         return when(getItem(position)) {
             is SearchUIModel.Header -> SEARCH_HEADER
@@ -25,11 +28,10 @@ class SearchHistoryAdapter: PagingDataAdapter<SearchUIModel, RecyclerView.ViewHo
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         getItem(position)?.let {
             when(holder) {
+                is SearchHeaderViewHolder ->
+                    holder.bind(onClickDeleteAllSearch)
                 is SearchItemViewHolder ->
-                    holder.bind(
-                        getItem(position)
-                                as SearchUIModel.SearchModel
-                    )
+                    holder.bind(getItem(position) as SearchUIModel.SearchModel, onClickDeleteSearch)
             }
         }
     }

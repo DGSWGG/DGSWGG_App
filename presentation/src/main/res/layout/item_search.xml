@@ -33,8 +33,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="닉네임"
+        android:layout_marginTop="4dp"
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@+id/cv_profile_image_item_search"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ib_remove_item_search"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

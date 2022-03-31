@@ -10,10 +10,13 @@ import kr.hs.dgsw.utils.Constants.IMAGE_URL
 class SearchItemViewHolder(
     private val binding: ItemSearchBinding
 ): RecyclerView.ViewHolder(binding.root) {
-    fun bind(searchModel: SearchUIModel.SearchModel) {
+    fun bind(searchModel: SearchUIModel.SearchModel, onClickDelete: (Long) -> Unit) {
         with(searchModel) {
             binding.tvSummonerNameItemSearch.text = search.summonerName
             binding.ivProfileImageItemSearch.load("${IMAGE_URL}profileicon/${search.profileIconId}.png")
+            binding.ibRemoveItemSearch.setOnClickListener {
+                onClickDelete.invoke(search.id)
+            }
         }
     }
 }

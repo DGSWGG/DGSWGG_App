@@ -27,6 +27,7 @@ class SearchActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         init()
+        listener()
         observe()
         flow()
     }
@@ -50,6 +51,16 @@ class SearchActivity : AppCompatActivity() {
                 15.dp
             )
         )
+    }
+
+    private fun listener() {
+        searchHistoryAdapter.onClickDeleteSearch = {
+            viewModel.deleteSearch(it)
+        }
+
+        searchHistoryAdapter.onClickDeleteAllSearch = {
+            viewModel.deleteAllSearch()
+        }
     }
 
     private fun observe() {

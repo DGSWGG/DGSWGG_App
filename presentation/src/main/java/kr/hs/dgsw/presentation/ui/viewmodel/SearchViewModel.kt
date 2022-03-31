@@ -7,6 +7,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kr.hs.dgsw.domain.entity.Search
+import kr.hs.dgsw.domain.usecase.search.DeleteAllSearchUseCase
+import kr.hs.dgsw.domain.usecase.search.DeleteSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.GetAllSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.InsertSearchUseCase
 import kr.hs.dgsw.presentation.ui.uimodel.SearchUIModel
@@ -16,7 +18,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val getAllSearchUseCase: GetAllSearchUseCase,
-    private val insertSearchUseCase: InsertSearchUseCase
+    private val insertSearchUseCase: InsertSearchUseCase,
+    private val deleteAllSearchUseCase: DeleteAllSearchUseCase,
+    private val deleteSearchUseCase: DeleteSearchUseCase
 ): ViewModel() {
 
     val searchText = ObservableField<String>()
@@ -39,6 +43,22 @@ class SearchViewModel @Inject constructor(
                         SearchUIModel.SearchModel(search) as SearchUIModel
                     }.insertHeaderItem(TerminalSeparatorType.FULLY_COMPLETE, SearchUIModel.Header)
                 }
+        }
+    }
+
+    fun deleteSearch(id: Long) {
+        viewModelScope.launch {
+            deleteSearchUseCase.buildParamsSuspendUseCase(DeleteSearchUseCase.Params(id))
+        }.invokeOnCompletion {
+            _refresh.call()
+        }
+    }
+
+    fun deleteAllSearch() {
+        viewModelScope.launch {
+            deleteAllSearchUseCase.buildSuspendUseCase()
+        }.invokeOnCompletion {
+            _refresh.call()
         }
     }
 

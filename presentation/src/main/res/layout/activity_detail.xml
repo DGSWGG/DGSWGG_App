@@ -6,13 +6,13 @@
     <data>
         <variable
             name="vm"
-            type="kr.hs.dgsw.presentation.ui.viewmodel.SearchViewModel" />
+            type="kr.hs.dgsw.presentation.ui.viewmodel.DetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.SearchActivity">
+        tools:context=".ui.activity.DetailActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_search"

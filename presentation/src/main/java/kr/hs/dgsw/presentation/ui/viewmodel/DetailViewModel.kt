@@ -16,7 +16,7 @@ import kr.hs.dgsw.presentation.util.SingleLiveEvent
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(
+class DetailViewModel @Inject constructor(
     private val getAllSearchUseCase: GetAllSearchUseCase,
     private val insertSearchUseCase: InsertSearchUseCase,
     private val deleteAllSearchUseCase: DeleteAllSearchUseCase,

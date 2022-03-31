@@ -8,19 +8,19 @@ import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kr.hs.dgsw.presentation.R
-import kr.hs.dgsw.presentation.databinding.ActivitySearchBinding
+import kr.hs.dgsw.presentation.databinding.ActivityDetailBinding
 import kr.hs.dgsw.presentation.ui.adapter.SearchHistoryAdapter
 import kr.hs.dgsw.presentation.ui.adapter.itemdecoration.SearchDividerItemDecoration
-import kr.hs.dgsw.presentation.ui.viewmodel.SearchViewModel
+import kr.hs.dgsw.presentation.ui.viewmodel.DetailViewModel
 import kr.hs.dgsw.presentation.util.bindings
 import kr.hs.dgsw.presentation.util.dp
 
 @AndroidEntryPoint
-class SearchActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity() {
 
     private val searchHistoryAdapter by lazy { SearchHistoryAdapter() }
-    private val binding: ActivitySearchBinding by bindings(ActivitySearchBinding::inflate)
-    private val viewModel: SearchViewModel by viewModels()
+    private val binding: ActivityDetailBinding by bindings(ActivityDetailBinding::inflate)
+    private val viewModel: DetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

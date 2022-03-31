@@ -2,6 +2,7 @@ package kr.hs.dgsw.presentation.ui.fragment.detail
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,9 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kr.hs.dgsw.presentation.R
 import kr.hs.dgsw.presentation.databinding.FragmentSearchBinding
@@ -52,6 +55,13 @@ class SearchFragment : Fragment() {
             searchHistoryAdapter.loadStateFlow
                 .collect {
                     binding.rvHistorySearch.smoothScrollToPosition(0)
+                    if (it.source.refresh is LoadState.NotLoading && searchHistoryAdapter.itemCount <= 1) {
+                        binding.rvHistorySearch.visibility = View.GONE
+                        binding.tvHistoryNothingItemSearch.visibility = View.VISIBLE
+                    } else {
+                        binding.rvHistorySearch.visibility = View.VISIBLE
+                        binding.tvHistoryNothingItemSearch.visibility = View.GONE
+                    }
                 }
         }
     }

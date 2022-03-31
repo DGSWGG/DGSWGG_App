@@ -2,9 +2,13 @@ package kr.hs.dgsw.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "search")
+@Entity(
+    tableName = "search",
+    indices = [Index(value = ["summoner_name"], unique = true)]
+)
 data class SearchData(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

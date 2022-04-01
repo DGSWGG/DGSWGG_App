@@ -2,7 +2,6 @@ package kr.hs.dgsw.presentation.ui.fragment.detail
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,13 +12,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kr.hs.dgsw.presentation.R
 import kr.hs.dgsw.presentation.databinding.FragmentSearchBinding
 import kr.hs.dgsw.presentation.ui.adapter.SearchHistoryAdapter
 import kr.hs.dgsw.presentation.ui.adapter.itemdecoration.SearchDividerItemDecoration
-import kr.hs.dgsw.presentation.ui.viewmodel.DetailViewModel
 import kr.hs.dgsw.presentation.ui.viewmodel.SearchViewModel
 import kr.hs.dgsw.presentation.util.bindings
 import kr.hs.dgsw.presentation.util.dp
@@ -29,7 +26,6 @@ class SearchFragment : Fragment() {
 
     private val searchHistoryAdapter by lazy { SearchHistoryAdapter() }
     private val binding: FragmentSearchBinding by bindings(FragmentSearchBinding::inflate)
-    private val activityViewModel: DetailViewModel by activityViewModels()
     private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreateView(
@@ -37,7 +33,6 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding.vm = viewModel
-        binding.activityVm = activityViewModel
         return binding.root
     }
 
@@ -80,11 +75,11 @@ class SearchFragment : Fragment() {
 
     private fun listener() {
         searchHistoryAdapter.onClickDeleteSearch = {
-            activityViewModel.deleteSearch(it)
+            viewModel.deleteSearch(it)
         }
 
         searchHistoryAdapter.onClickDeleteAllSearch = {
-            activityViewModel.deleteAllSearch()
+            viewModel.deleteAllSearch()
         }
     }
 
@@ -92,7 +87,7 @@ class SearchFragment : Fragment() {
         viewModel.search.observe(viewLifecycleOwner) {
             searchHistoryAdapter.submitData(lifecycle, it)
         }
-        activityViewModel.refresh.observe(viewLifecycleOwner) {
+        viewModel.refresh.observe(viewLifecycleOwner) {
             searchHistoryAdapter.refresh()
         }
         viewModel.eventFinishActivity.observe(viewLifecycleOwner) {

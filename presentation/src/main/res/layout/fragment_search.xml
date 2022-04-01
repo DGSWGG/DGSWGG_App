@@ -7,9 +7,6 @@
         <variable
             name="vm"
             type="kr.hs.dgsw.presentation.ui.viewmodel.SearchViewModel" />
-        <variable
-            name="activityVm"
-            type="kr.hs.dgsw.presentation.ui.viewmodel.DetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +34,7 @@
                 android:inputType="text"
                 android:imeOptions="actionSearch"
                 android:text="@={vm.searchText}"
-                android:onEditorAction="@{() -> activityVm.searchSummoner(etSearch.getText().toString())}"
+                android:onEditorAction="@{() -> vm.searchSummoner(etSearch.getText().toString())}"
                 android:layout_height="wrap_content" />
 
         </androidx.appcompat.widget.Toolbar>

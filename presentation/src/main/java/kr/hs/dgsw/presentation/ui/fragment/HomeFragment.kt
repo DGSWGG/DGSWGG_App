@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import kr.hs.dgsw.presentation.databinding.FragmentHomeBinding
-import kr.hs.dgsw.presentation.ui.activity.SearchActivity
+import kr.hs.dgsw.presentation.ui.activity.DetailActivity
 import kr.hs.dgsw.presentation.ui.viewmodel.HomeViewModel
 import kr.hs.dgsw.presentation.util.bindings
 
@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.searchBtn.observe(viewLifecycleOwner) {
-            val intent = Intent(requireActivity(), SearchActivity::class.java)
+            val intent = Intent(requireActivity(), DetailActivity::class.java)
             startActivity(intent)
         }
     }

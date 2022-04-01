@@ -1,9 +1,8 @@
 package kr.hs.dgsw.presentation.ui.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kr.hs.dgsw.presentation.ui.util.SingleLiveEvent
+import kr.hs.dgsw.presentation.util.SingleLiveEvent
 
 class HomeViewModel : ViewModel() {
 

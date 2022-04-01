@@ -1,4 +1,4 @@
-package kr.hs.dgsw.presentation.ui.util
+package kr.hs.dgsw.presentation.util
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

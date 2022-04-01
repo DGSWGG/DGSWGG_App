@@ -52,9 +52,15 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    fun getSummoner(searchText: String) {
+    fun getSummoner() {
         viewModelScope.launch {
-            val search = Search(profileIconId = 550, summonerName = searchText)
+            insertSummonerSearch()
+        }
+    }
+
+    fun insertSummonerSearch() {
+        viewModelScope.launch {
+            val search = Search(profileIconId = 550, summonerName = searchText.get()?:"")
             insertSearchUseCase.buildParamsSuspendUseCase(InsertSearchUseCase.Params(search))
         }.invokeOnCompletion {
             _refresh.call()

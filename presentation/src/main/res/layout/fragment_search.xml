@@ -34,7 +34,7 @@
                 android:inputType="text"
                 android:imeOptions="actionSearch"
                 android:text="@={vm.searchText}"
-                android:onEditorAction="@{() -> vm.searchSummoner(etSearch.getText().toString())}"
+                android:onEditorAction="@{() -> vm.getSummoner(etSearch.getText().toString())}"
                 android:layout_height="wrap_content" />
 
         </androidx.appcompat.widget.Toolbar>

@@ -13,7 +13,7 @@ fun SummonerData.toEntity(): Summoner {
         klass,
         number,
         name,
-        playerIconId,
+        profileIconId,
         summonerName,
         summonerLevel,
         rankData.map { it.toEntity() }

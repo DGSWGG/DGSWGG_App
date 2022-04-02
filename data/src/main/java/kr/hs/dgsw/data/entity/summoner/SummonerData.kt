@@ -11,7 +11,7 @@ data class SummonerData(
     val klass: Int,
     val number: Int,
     val name: String,
-    val playerIconId: Int,
+    val profileIconId: Int,
     val summonerName: String,
     val summonerLevel: Int,
     val rankData: List<RankData>

@@ -16,6 +16,7 @@ class SearchHistoryAdapter: PagingDataAdapter<SearchUIModel, RecyclerView.ViewHo
 
     lateinit var onClickDeleteAllSearch: () -> Unit
     lateinit var onClickDeleteSearch: (Long) -> Unit
+    lateinit var onClickItem: (name: String) -> Unit
 
     override fun getItemViewType(position: Int): Int {
         return when(getItem(position)) {
@@ -31,7 +32,7 @@ class SearchHistoryAdapter: PagingDataAdapter<SearchUIModel, RecyclerView.ViewHo
                 is SearchHeaderViewHolder ->
                     holder.bind(onClickDeleteAllSearch)
                 is SearchItemViewHolder ->
-                    holder.bind(getItem(position) as SearchUIModel.SearchModel, onClickDeleteSearch)
+                    holder.bind(getItem(position) as SearchUIModel.SearchModel, onClickItem, onClickDeleteSearch)
             }
         }
     }

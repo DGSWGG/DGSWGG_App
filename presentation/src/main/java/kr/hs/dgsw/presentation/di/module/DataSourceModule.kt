@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kr.hs.dgsw.data.database.cache.SearchCache
 import kr.hs.dgsw.data.datasource.search.SearchDataSource
+import kr.hs.dgsw.data.datasource.summoner.SummonerDataSource
+import kr.hs.dgsw.data.network.remote.SummonerRemote
 import javax.inject.Singleton
 
 @Module
@@ -15,5 +17,11 @@ object DataSourceModule {
     @Singleton
     fun searchDataSource(searchCache: SearchCache): SearchDataSource {
         return SearchDataSource(searchCache)
+    }
+
+    @Provides
+    @Singleton
+    fun summonerDataSource(summonerRemote: SummonerRemote): SummonerDataSource {
+        return SummonerDataSource(summonerRemote)
     }
 }

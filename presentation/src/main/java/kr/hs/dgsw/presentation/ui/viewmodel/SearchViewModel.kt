@@ -9,11 +9,9 @@ import androidx.paging.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import kr.hs.dgsw.domain.entity.Search
 import kr.hs.dgsw.domain.usecase.search.DeleteAllSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.DeleteSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.GetAllSearchUseCase
-import kr.hs.dgsw.domain.usecase.search.InsertSearchUseCase
 import kr.hs.dgsw.presentation.ui.uimodel.SearchUIModel
 import kr.hs.dgsw.presentation.util.SingleLiveEvent
 import javax.inject.Inject
@@ -21,7 +19,6 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val getAllSearchUseCase: GetAllSearchUseCase,
-    private val insertSearchUseCase: InsertSearchUseCase,
     private val deleteAllSearchUseCase: DeleteAllSearchUseCase,
     private val deleteSearchUseCase: DeleteSearchUseCase
 ): ViewModel() {
@@ -30,17 +27,17 @@ class SearchViewModel @Inject constructor(
     private val _eventFinishActivity = SingleLiveEvent<Unit>()
     val eventFinishActivity: LiveData<Unit> = _eventFinishActivity
 
-    private val _search = MutableLiveData<PagingData<SearchUIModel>>()
-    val search: LiveData<PagingData<SearchUIModel>> = _search
+    private val _searchList = MutableLiveData<PagingData<SearchUIModel>>()
+    val searchList: LiveData<PagingData<SearchUIModel>> = _searchList
 
-    private val _refresh = SingleLiveEvent<Unit>()
-    val refresh: LiveData<Unit> = _refresh
+    private val _eventRefresh = SingleLiveEvent<Unit>()
+    val eventRefresh: LiveData<Unit> = _eventRefresh
 
     fun deleteSearch(id: Long) {
         viewModelScope.launch {
             deleteSearchUseCase.buildParamsSuspendUseCase(DeleteSearchUseCase.Params(id))
         }.invokeOnCompletion {
-            _refresh.call()
+            _eventRefresh.call()
         }
     }
 
@@ -48,22 +45,7 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             deleteAllSearchUseCase.buildSuspendUseCase()
         }.invokeOnCompletion {
-            _refresh.call()
-        }
-    }
-
-    fun getSummoner() {
-        viewModelScope.launch {
-            insertSummonerSearch()
-        }
-    }
-
-    fun insertSummonerSearch() {
-        viewModelScope.launch {
-            val search = Search(profileIconId = 550, summonerName = searchText.get()?:"")
-            insertSearchUseCase.buildParamsSuspendUseCase(InsertSearchUseCase.Params(search))
-        }.invokeOnCompletion {
-            _refresh.call()
+            _eventRefresh.call()
         }
     }
 
@@ -72,7 +54,7 @@ class SearchViewModel @Inject constructor(
             getAllSearchUseCase.buildParamsUseCase(GetAllSearchUseCase.Params(10))
                 .cachedIn(viewModelScope)
                 .collectLatest {
-                    _search.value =
+                    _searchList.value =
                         it.map { search ->
                             SearchUIModel.SearchModel(search) as SearchUIModel
                         }.insertHeaderItem(TerminalSeparatorType.FULLY_COMPLETE, SearchUIModel.Header)

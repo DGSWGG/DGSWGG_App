@@ -1,7 +1,8 @@
 package kr.hs.dgsw.presentation.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
+import kr.hs.dgsw.domain.entity.summoner.Summoner
 
 class SummonerViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+    lateinit var summoner: Summoner
 }

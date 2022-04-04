@@ -12,6 +12,8 @@
         <entry key="presentation/src/main/res/drawable/bg_gradient.xml" value="0.1975" />
         <entry key="presentation/src/main/res/drawable/bg_level.xml" value="0.1975" />
         <entry key="presentation/src/main/res/drawable/bg_nothing_item.xml" value="0.1915" />
+        <entry key="presentation/src/main/res/drawable/bg_rank_box.xml" value="0.1975" />
+        <entry key="presentation/src/main/res/drawable/bg_rank_type.xml" value="0.1975" />
         <entry key="presentation/src/main/res/drawable/bg_search_button.xml" value="0.25" />
         <entry key="presentation/src/main/res/drawable/bg_search_button_night.xml" value="0.121" />
         <entry key="presentation/src/main/res/drawable/bg_search_input.xml" value="0.1" />
@@ -43,6 +45,7 @@
         <entry key="presentation/src/main/res/layout/fragment_summoner.xml" value="0.335" />
         <entry key="presentation/src/main/res/layout/header_search.xml" value="0.33" />
         <entry key="presentation/src/main/res/layout/home_fragment.xml" value="0.3567708333333333" />
+        <entry key="presentation/src/main/res/layout/item_rank.xml" value="0.35572916666666665" />
         <entry key="presentation/src/main/res/layout/item_search.xml" value="0.33" />
         <entry key="presentation/src/main/res/menu/menu_homr.xml" value="0.35625" />
         <entry key="presentation/src/main/res/menu/menu_main.xml" value="0.1" />

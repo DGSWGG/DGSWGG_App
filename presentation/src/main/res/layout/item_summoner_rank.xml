@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="@{@string/tier(rank.tier, rank.rank)}"
+            android:text="@{Integer.parseInt(rank.rank) == 0 ? rank.tier : @string/tier(rank.tier, rank.rank)}"
             app:layout_constraintStart_toEndOf="@+id/iv_rank_summoner_rank"
             app:layout_constraintTop_toBottomOf="@+id/tv_rank_type_summoner_rank"
             tools:text="Silver 4" />
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textColor="@color/disabled"
-            android:text="@{@string/win_lose(rank.wins, rank.losses, rank.wins/(rank.wins + rank.losses))}"
+            android:text="@{@string/win_lose(rank.wins, rank.losses, (int)((float)rank.wins / (float)(rank.wins + rank.losses) * 100))}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_rank_summoner_rank"
             app:layout_constraintTop_toBottomOf="@+id/tv_league_point_summoner_rank"

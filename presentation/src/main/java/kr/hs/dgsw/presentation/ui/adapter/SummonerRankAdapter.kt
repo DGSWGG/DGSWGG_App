@@ -11,7 +11,7 @@ import kr.hs.dgsw.presentation.ui.adapter.viewholder.summoner.SummonerRankViewHo
 class SummonerRankAdapter: ListAdapter<Rank, SummonerRankViewHolder>(diffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SummonerRankViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return SummonerRankViewHolder(ItemSummonerRankBinding.inflate(layoutInflater))
+        return SummonerRankViewHolder(ItemSummonerRankBinding.inflate(layoutInflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: SummonerRankViewHolder, position: Int) {

@@ -27,6 +27,7 @@ class SummonerRankViewHolder(
 }
 
 enum class RankImage(val imageResource: Int) {
+    Unranked(R.drawable.ic_unranked),
     Iron(R.drawable.ic_iron),
     Bronze(R.drawable.ic_bronze),
     Silver(R.drawable.ic_silver),

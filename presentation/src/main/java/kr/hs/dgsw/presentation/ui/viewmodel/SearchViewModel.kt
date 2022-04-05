@@ -9,6 +9,7 @@ import androidx.paging.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kr.hs.dgsw.domain.entity.Search
 import kr.hs.dgsw.domain.usecase.search.DeleteAllSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.DeleteSearchUseCase
 import kr.hs.dgsw.domain.usecase.search.GetAllSearchUseCase
@@ -18,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val getAllSearchUseCase: GetAllSearchUseCase,
+    private val getAllSearchUseCase: GetAllSearchUseCase<PagingData<Search>>,
     private val deleteAllSearchUseCase: DeleteAllSearchUseCase,
     private val deleteSearchUseCase: DeleteSearchUseCase
 ): ViewModel() {

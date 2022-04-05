@@ -10,8 +10,8 @@ import javax.inject.Inject
 class SearchRepositoryImpl @Inject constructor(
     private val searchDataSource: SearchDataSource
 ): SearchRepository {
-    override fun getAll(size: Int): Flow<PagingData<Search>> {
-        return searchDataSource.getAll(size)
+    override fun <T> getAll(size: Int): Flow<T> {
+        return searchDataSource.getAll(size) as Flow<T>
     }
 
     override suspend fun insertSearch(search: Search) {

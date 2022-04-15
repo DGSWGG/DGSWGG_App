@@ -102,22 +102,36 @@
     <style name="Theme.Title.Button" parent="Theme.Button">
         <item name="android:background">@drawable/bg_title_button</item>
         <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/color_button_text</item>
     </style>
 
-    <style name="Theme.Search.Background" parent="Theme.Button">
+    <style name="Theme.Input" parent="Theme.Button">
         <item name="android:background">@drawable/bg_search_button</item>
+        <item name="android:elevation">0dp</item>
         <item name="android:textAlignment">textStart</item>
         <item name="android:padding">10dp</item>
-        <item name="android:drawablePadding">10dp</item>
-        <item name="android:drawableStart">@drawable/ic_search</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/disabled</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+
+    <style name="Theme.Search.Background" parent="Theme.Input">
+        <item name="android:background">@drawable/bg_search_button_night</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:drawablePadding">10dp</item>
         <item name="android:textColor">@color/disabled</item>
+        <item name="android:drawableStart">@drawable/ic_search_night</item>
     </style>
 
     <style name="Theme.Search.EditText" parent="Theme.Search.Background">
-        <item name="android:background">@drawable/bg_search_input</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorHint">@color/disabled</item>
+        <item name="android:background">@drawable/bg_search_input_night</item>
+    </style>
+
+    <style name="Theme.FloatingActionButton" parent="ThemeOverlay.Material3.FloatingActionButton.Primary">
+        <item name="maxImageSize">30dp</item>
+        <item name="tint">@color/white</item>
     </style>
 
     <style name="Theme.BottomNavigationView.TextAppearanceActive">

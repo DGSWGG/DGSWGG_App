@@ -9,13 +9,13 @@ import javax.inject.Inject
 class SummonerRepositoryImpl @Inject constructor(
     private val summonerDataSource: SummonerDataSource
 ): SummonerRepository {
-    override fun postRefreshSummonerInfo(
+    override suspend fun postRefreshSummonerInfo(
         grade: Int,
         klass: Int,
         number: Int,
         name: String,
         summonerName: String
-    ): Flow<String> {
+    ): String {
         return summonerDataSource.postRefreshSummonerInfo(grade, klass, number, name, summonerName)
     }
 

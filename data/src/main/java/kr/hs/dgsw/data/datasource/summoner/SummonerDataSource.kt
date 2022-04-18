@@ -10,13 +10,13 @@ import javax.inject.Inject
 class SummonerDataSource @Inject constructor(
     private val remote: SummonerRemote
 ) {
-    fun postRefreshSummonerInfo(
+    suspend fun postRefreshSummonerInfo(
         grade: Int,
         klass: Int,
         number: Int,
         name: String,
         summonerName: String
-    ): Flow<String> {
+    ): String {
         return remote.postRefreshSummonerInfo(grade, klass, number, name, summonerName)
     }
 

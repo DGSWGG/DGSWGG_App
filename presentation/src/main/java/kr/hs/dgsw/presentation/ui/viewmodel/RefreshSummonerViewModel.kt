@@ -1,6 +1,7 @@
 package kr.hs.dgsw.presentation.ui.viewmodel
 
 import androidx.databinding.ObservableField
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,6 +20,14 @@ class RefreshSummonerViewModel @Inject constructor(
     val number = ObservableField(0)
     val summonerName = ObservableField("")
 
+    private val _isFailure = MutableLiveData<String>()
+    val isFailure: LiveData<String>
+        get() = _isFailure
+
+    private val _isSuccess = MutableLiveData<String>()
+    val isSuccess: LiveData<String>
+        get() = _isSuccess
+
     fun postRefreshSummonerInfo() {
         val name = name.get()!!
         val grade = grade.get()!!
@@ -29,7 +38,11 @@ class RefreshSummonerViewModel @Inject constructor(
             val params = PostRefreshSummonerInfoUseCase.Params(
                 grade, klass, number, name, summonerName
             )
-            postRefreshSummonerInfoUseCase.buildParamsUseCase(params)
+            val result = postRefreshSummonerInfoUseCase.buildParamsSuspendUseCase(params)
+            if (result.isFailure)
+                _isFailure.value = result.getOrNull()
+            else
+                _isSuccess.value = result.getOrNull()
         }
     }
 }

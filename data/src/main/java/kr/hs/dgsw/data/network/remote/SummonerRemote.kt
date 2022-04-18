@@ -10,20 +10,16 @@ import javax.inject.Inject
 class SummonerRemote @Inject constructor(
     override val service: SummonerService
 ): BaseRemote<SummonerService>() {
-    fun postRefreshSummonerInfo(
+    suspend fun postRefreshSummonerInfo(
         grade: Int,
         klass: Int,
         number: Int,
         name: String,
         summonerName: String
-    ): Flow<String> {
-        return flow {
-            emit(getMessage(
-                service.postRefreshSummonerInfo(
-                    grade, klass, number, name, summonerName
-                )
-            ))
-        }
+    ): String {
+        return getMessage(service.postRefreshSummonerInfo(
+            grade, klass, number, name, summonerName
+        ))
     }
 
     fun getSummonerByName(summonerName: String): Flow<SummonerData> {

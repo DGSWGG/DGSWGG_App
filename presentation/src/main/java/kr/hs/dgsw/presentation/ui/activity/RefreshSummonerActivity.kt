@@ -3,6 +3,7 @@ package kr.hs.dgsw.presentation.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import kr.hs.dgsw.presentation.R
@@ -43,5 +44,13 @@ class RefreshSummonerActivity : AppCompatActivity() {
         binding.spinnerSummonerGradeRefreshSummoner.adapter = gradeAdapter
         binding.spinnerSummonerClassRefreshSummoner.adapter = classAdapter
         binding.spinnerSummonerNumberRefreshSummoner.adapter = numberAdapter
+
+        viewModel.isFailure.observe(this) {
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+        }
+
+        viewModel.isSuccess.observe(this) {
+            finish()
+        }
     }
 }
